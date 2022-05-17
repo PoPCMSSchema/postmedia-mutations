@@ -4,23 +4,18 @@ declare(strict_types=1);
 
 namespace PoPCMSSchema\PostMediaMutations;
 
-use PoP\Root\Component\AbstractComponent;
+use PoP\Root\Module\AbstractModule;
 
-/**
- * Initialize component
- */
-class Component extends AbstractComponent
+class Module extends AbstractModule
 {
     /**
-     * Classes from PoP components that must be initialized before this component
-     *
      * @return string[]
      */
-    public function getDependedComponentClasses(): array
+    public function getDependedModuleClasses(): array
     {
         return [
-            \PoPCMSSchema\CustomPostMediaMutations\Component::class,
-            \PoPCMSSchema\PostMutations\Component::class,
+            \PoPCMSSchema\CustomPostMediaMutations\Module::class,
+            \PoPCMSSchema\PostMutations\Module::class,
         ];
     }
 
@@ -29,12 +24,12 @@ class Component extends AbstractComponent
     //  * Initialize services
     //  *
     //  * @param array<string, mixed> $configuration
-    //  * @param string[] $skipSchemaComponentClasses
+    //  * @param string[] $skipSchemaModuleClasses
     //  */
     // protected function initializeContainerServices(
     //     array $configuration,
     //     bool $skipSchema,
-    //     array $skipSchemaComponentClasses,
+    //     array $skipSchemaModuleClasses,
     // ): void {
     //     $this->initSchemaServices(dirname(__DIR__), $skipSchema);
     // }
